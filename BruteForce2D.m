@@ -1,4 +1,10 @@
-BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorBeginning.xlsx']);
+file = 2;
+switch file
+    case 1
+        BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorBeginning.xlsx']);
+    case 2
+        BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorsBothMoving.xlsx']);
+end
 N = size(BigData,1);
 g1 = BigData(:,1:3);
 a1 = BigData(:,4:6);

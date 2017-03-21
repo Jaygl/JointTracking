@@ -1,4 +1,10 @@
-BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorBeginning.xlsx']);
+file = 2;
+switch file
+    case 1
+        BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorBeginning.xlsx']);
+    case 2
+        BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorsBothMoving.xlsx']);
+end
 N = size(BigData,1);
 g1 = BigData(:,1:3);
 a1 = BigData(:,4:6);
@@ -49,8 +55,8 @@ for i = 1:length(phi)
 end
 
 [target_phi1 target_theta1 target_phi2 target_theta2] = ind2sub(size(Psi), find(Psi == ...
-min(min(min(min(Psi))))))
-
+min(min(min(min(Psi))))));
+[theta(target_theta1) phi(target_phi1) theta(target_theta2) phi(target_phi2)]
 %Theta 1 and Phi 1
 figure
 surf(theta, phi, Psi(:,:,target_phi2, target_theta2));
