@@ -23,8 +23,8 @@ d1 = sqrt(sum(c1.^2, 2));
 d2 = sqrt(sum(c2.^2, 2));
 
 %Old
-grad1 = n1./d1;
-grad2 = n2./d2;
+% grad1 = n1./d1;
+% grad2 = n2./d2;
 %Proper
 grad1 = 2*errs.* n1./d1;
 grad2 = 2*errs.* n2./d2;

@@ -1,9 +1,16 @@
-file = 2;
+file = 5;
 switch file
     case 1
         BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorBeginning.xlsx']);
     case 2
         BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorsBothMoving.xlsx']);
+    case 3
+        BigData = xlsread([pwd '\Data\2SparkfunSensors042317Run1.xlsx']);
+    case 4
+        BigData = xlsread([pwd '\Data\2SparkfunSensors042317Run2.xlsx']);
+    case 5
+        BigData = xlsread([pwd '\Data\2SparkfunSensors042317Run3.xlsx']);
+
 end
 N = size(BigData,1);
 g1 = BigData(:,1:3);
@@ -55,7 +62,7 @@ for i = 1:length(phi)
 end
 
 [target_phi1 target_theta1 target_phi2 target_theta2] = ind2sub(size(Psi), find(Psi == ...
-min(min(min(min(Psi))))));
+    min(min(min(min(Psi))))));
 [theta(target_theta1) phi(target_phi1) theta(target_theta2) phi(target_phi2)]
 %Theta 1 and Phi 1
 figure
@@ -72,5 +79,7 @@ xlabel('Phi')
 ylabel('Theta')
 zlabel('Sum(error^2)')
 title('Varying Theta 2 and Phi 2')
+save(['BruteForce4Dfile' num2str(file)], 'Psi', 'phi', 'target_phi1', 'target_theta1', 'target_phi2', 'target_theta2', 'theta')
+
 
 

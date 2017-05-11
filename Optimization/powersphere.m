@@ -44,7 +44,7 @@ checkgradient(problem)
 
 % Solve.
 warning('off', 'manopt:getHessian:approx')
-[x, xcost, info] = trustregions(problem, x0);          %#ok<ASGLU>
+[x, xcost, info] = trustregions(problem);          %#ok<ASGLU>
 [target_theta1 target_phi1 ~] = cart2sph(x{1}(1), x{1}(2), x{1}(3))
 [target_theta2 target_phi2 ~] = cart2sph(x{2}(1), x{2}(2), x{2}(3))
 % [xbest, fbest, info, options] = pso(problem)
