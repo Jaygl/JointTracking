@@ -1,32 +1,12 @@
 file = 5;
-switch file
-    case 1
-        BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorBeginning.xlsx']);
-    case 2
-        BigData = xlsread([pwd '\Data\MovingEdisonSensorForTwoSensorsBothMoving.xlsx']);
-    case 3
-        BigData = xlsread([pwd '\Data\2SparkfunSensors042317Run1.xlsx']);
-    case 4
-        BigData = xlsread([pwd '\Data\2SparkfunSensors042317Run2.xlsx']);
-    case 5
-        BigData = xlsread([pwd '\Data\2SparkfunSensors042317Run3.xlsx']);
+filter_data = 1;
+g = 9.8;
+load_and_clean_data
 
-end
-N = size(BigData,1);
-g1 = BigData(:,1:3);
-a1 = BigData(:,4:6);
-m1 = BigData(:,7:9);
-deltaT1 = BigData(:,10);
-T1 = BigData(:,11);
+interval_size = .1;
+phi = [-pi/2:interval_size:pi/2];
+theta = [0:interval_size:2*pi];
 
-g2 = BigData(:,13:15);
-a2 = BigData(:,16:18);
-m2 = BigData(:,19:21);
-deltaT2 = BigData(:,22);
-T2 = BigData(:,23);
-
-phi = [-pi/2:.1:pi/2];
-theta = [0:.1:2*pi];
 for i = 1:length(phi)
     i
     for j = 1:length(theta)
@@ -69,7 +49,7 @@ figure
 surf(theta, phi, Psi(:,:,target_phi2, target_theta2));
 xlabel('Phi')
 ylabel('Theta')
-zlabel('Sum(error^2)')
+zlabel('Sum of squared error')
 title('Varying Theta 1 and Phi 1')
 
 %Theta 2 and Phi 2
@@ -77,7 +57,7 @@ figure
 surf(theta, phi, squeeze(Psi(target_phi1, target_theta1, :,:)));
 xlabel('Phi')
 ylabel('Theta')
-zlabel('Sum(error^2)')
+zlabel('Sum of squared error')
 title('Varying Theta 2 and Phi 2')
 save(['BruteForce4Dfile' num2str(file)], 'Psi', 'phi', 'target_phi1', 'target_theta1', 'target_phi2', 'target_theta2', 'theta')
 
