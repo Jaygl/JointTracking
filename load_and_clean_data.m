@@ -57,7 +57,7 @@ a11 = interp1(T1, a11, t_goal');
 g22 = interp1(T2, g22, t_goal');
 a22 = interp1(T2, a22, t_goal');
     
-%Filtering 
+%Filtering, if desired
 if filter_data
     fc = 1/.3; %1/.3 was working well ish
     fs = 1/.03;
@@ -75,7 +75,6 @@ else
     g2 = g22;
 end
 
-
 % figure
 % plot(t_goal(1:cutoff), a1(1:cutoff,3),'k')
 % hold on
@@ -86,6 +85,7 @@ end
 g1dot = diff(g1, 1, 1)/samplerate;
 g2dot = diff(g2, 1, 1)/samplerate;
 
+%Acceleration is measured in g's, must be in m/s^2
 a1 = a1*g;
 a2 = a2*g;
 
