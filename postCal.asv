@@ -1,0 +1,47 @@
+switch file
+    case 1 %This was the first dataset
+        BigData1 = load('datalogFirst.txt');
+        BigData2 = load('datalogWest.txt');
+        T1_offset = -1;
+        T2_offset = -.2;
+    case 2
+        BigData1 = load('datalogFirst2.txt');
+        BigData2 = load('datalogWest2.txt');
+        T1_offset = -.8;
+        T2_offset = -.1;
+    case 3
+        BigData1 = load('datalogFirstNotDouble.txt');
+        BigData2 = load('datalogWestDouble.txt');
+        T1_offset = -.55;
+        T2_offset = -.1;
+    case 4
+        BigData1 = load('datalogFirstXJ.txt');
+        BigData2 = load('datalogWestXJ.txt');
+        T1_offset = -.5;
+        T2_offset = -.1;
+        S1_axis = 1;
+        S2_axis = 1;
+        aligned = 1;
+        alpha_gyr_offset = pi;
+        alpha_acc_offset = pi/2;
+    case 5
+        BigData1 = load('datalogFirst30JX.txt');
+        BigData2 = load('datalogWest60JY.txt');
+        T1_offset = -.45;
+        T2_offset = -.1;
+        S1_axis = 1;
+        S2_axis = 2;
+        aligned = 0;
+        alpha_gyr_offset = pi;
+        alpha_acc_offset = pi/2;
+    case 6
+        BigData1 = load('dataFirst5_18_1.txt');
+        BigData2 = load('dataWest5_18_1.txt');
+        T1_offset = -.1;
+        T2_offset = -1.9;
+        S1_axis = 2;
+        S2_axis = 2;
+        aligned = 1;
+        alpha_gyr_offset = pi;
+        alpha_acc_offset = pi/2;
+end

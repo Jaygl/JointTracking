@@ -56,26 +56,6 @@ switch file
         aligned = 1;
         alpha_gyr_offset = pi;
         alpha_acc_offset = pi/2;
-    case 7
-        BigData1 = load('dataFirst5_18_3.txt');
-        BigData2 = load('dataWest5_18_3.txt');
-        T1_offset = -1.95;
-        T2_offset = -.1;
-        S1_axis = 2;
-        S2_axis = 2;
-        aligned = 1;
-        alpha_gyr_offset = pi;
-        alpha_acc_offset = pi/2;
-    case 8
-        BigData1 = load('dataFirst5_18_4f.txt');
-        BigData2 = load('dataWest5_18_4f.txt');
-        T1_offset = -.1;
-        T2_offset = -2.6;
-        S1_axis = 2;
-        S2_axis = 2;
-        aligned = 1;
-        alpha_gyr_offset = pi;
-        alpha_acc_offset = pi/2;
 end
 samplerate = .03;
 cutoff = 700;
@@ -112,6 +92,10 @@ if filter_data
         g2(:,k) = filter(m, n, g22(:,k));
     end
 else
+    figure
+    plot(T1,a11(:,3),'k')
+    hold
+    plot(T1(1:end-1),a1(1:end-1,3),'r')
     a1 = a11;
     a2 = a22;
     g1 = g11;
